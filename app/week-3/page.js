@@ -8,6 +8,5 @@ export default function Page(){
             <h1 className="text-3xl font-bold text-teal-100 px-4 pt-4">Shopping List</h1>
             <ItemList/>
         </main>
-        
     );
 }
