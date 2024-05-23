@@ -76,7 +76,7 @@ export default function ItemList(){
       };
 
       return(
-        <div>
+        <div className="p-2">
           <Item item = {item1}/>
           <Item item = {item2}/>
           <Item item = {item3}/>
