@@ -8,6 +8,7 @@ export default function Home() {
       <ul>
         <li className="text-lg pl-20 text-teal-100"><Link href="./week-2">Week-2 Assignment</Link></li>
         <li className="text-lg pl-20 text-teal-100"><Link href="./week-3">Week-3 Assignment</Link></li>
+        <li className="text-lg pl-20 text-teal-100"><Link href="./week-4">Week-4 Assignment</Link></li>
       </ul>
     </main>
   );
