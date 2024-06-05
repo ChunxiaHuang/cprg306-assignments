@@ -35,12 +35,12 @@ export default function NewItem(){
     
 
     return(
-        <form className="bg-teal-900 max-w-sm w-full p-5 m-4 h-48" onSubmit={handleSubmit}>
+        <form className="bg-teal-900 max-w-sm min-w-64 w-full p-5 m-4 h-48" onSubmit={handleSubmit}>
             <div>
                 <input required onChange={handleItemName} className="border-2 rounded-lg p-2 w-full" placeholder="Item name" value={itemName}></input>
             </div>
             <div className="flex justify-between my-2">
-                <input onChange={handleQuantity} className="border-2 rounded-lg p-2 w-16" type="number" defaultValue={1} min={1} step={1} value={quantity}/>
+                <input onChange={handleQuantity} className="border-2 rounded-lg p-2 w-16 mr-2" type="number" defaultValue={1} min={1} step={1} value={quantity}/>
                 <select onChange={handleCategory} className="border-2 rounded-lg p-2" value={category}>
                     <option value="" disabled>Category</option>
                     <option value="produce">Produce</option>
