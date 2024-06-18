@@ -4,9 +4,6 @@ import { useState } from "react";
 
 export default function NewItem(){
 
-    ///////problem:
-    ///////when click , the button become bigger, but affect the whole size
-    ///////cannot alert a new window
     const buttonStyles = `bg-teal-500 border-2 border-teal-900 hover:bg-teal-600 
     active:border-teal-500 
     rounded-lg w-full p-2 text-white font-bold`;
