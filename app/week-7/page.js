@@ -3,7 +3,7 @@ import { useState } from "react";
 import ItemList from "./item-list";
 import ItemData from './items.json';
 import NewItem from "./new-item";
-import MealIdeas from "../week-7/meal-ideas";
+import MealIdeas from "./meal-ideas";
 
 
 
