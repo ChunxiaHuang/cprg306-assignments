@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import MealIdeas from "./meal-ideas";
@@ -15,13 +15,21 @@ export default function Page(){
 
     const [selectedItemName, setSelectedItemName] = useState("");
 
-    const [items, setItems] = useState(
-        ItemData.map((item)=>({...item}))
-    );
+    // const [items, setItems] = useState(
+    //     ItemData.map((item)=>({...item}))
+    // );
 
-    const handleAddItem = (newItem) => {
-        setItems([...items, newItem]);
-    }
+    // const handleAddItem = (newItem) => {
+    //     setItems([...items, newItem]);
+    // }
+
+    const [items, setItems] = useState(getItems(user.uid));
+
+    useEffect( ()=>{
+        if(user){
+            setItems(getItems(user.uid));
+        }
+    }, [user])
 
     const handleItemSelect = (name) => {
         
@@ -37,7 +45,8 @@ export default function Page(){
             { user ? (
                 <div className="flex">
                     <div className="flex-1 max-w-sm">
-                        <NewItem onAddItem={handleAddItem} />
+                        {/* <NewItem onAddItem={handleAddItem} /> */}
+                        <NewItem />
                         <ItemList itemList={items} onItemSelect={handleItemSelect}/>
                     </div>
                     <div className="flex-1 max-w-sm pt-6 pl-10">

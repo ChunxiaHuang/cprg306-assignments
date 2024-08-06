@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import { addItem, getItems } from "../_services/shopping-list-service";
 
 export default function NewItem({onAddItem}){
 
@@ -8,11 +9,12 @@ export default function NewItem({onAddItem}){
     active:border-teal-500 
     rounded-lg w-full p-2 text-white font-bold`;
 
+    const { user } = useUserAuth();
     const [itemName, setItemName] = useState("");
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState("produce");
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         let newItem = {
             //id: "randomId",
@@ -22,7 +24,8 @@ export default function NewItem({onAddItem}){
         }
         //alert(`Added item: ${newItem.name}, quantity: ${newItem.quantity}, category: ${newItem.category}`);
     
-        onAddItem(newItem);
+        //onAddItem(newItem);
+        await addItem(user.uid, newItem);
 
         setItemName("");
         setQuantity(1);
