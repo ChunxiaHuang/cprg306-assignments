@@ -23,13 +23,22 @@ export default function Page(){
     //     setItems([...items, newItem]);
     // }
 
-    const [items, setItems] = useState(getItems(user.uid));
+    const [items, setItems] = useState([]);
 
-    useEffect( ()=>{
-        if(user){
-            setItems(getItems(user.uid));
-        }
-    }, [user])
+    // useEffect( ()=>{
+    //     if(user){
+    //         setItems(getItems(user.uid));
+    //     }
+    // }, [user])
+    useEffect(() => {
+        const fetchItems = async () => {
+            if(user){
+                const fetchedItems = await getItems(user.uid);
+                setItems(fetchedItems);
+            }
+        };
+        fetchItems();
+    }, [user]);
 
     const handleItemSelect = (name) => {
         
@@ -39,14 +48,20 @@ export default function Page(){
         setSelectedItemName(cleanedName);
     }
 
+    const refreshItems = async () => {
+        if (user) {
+            const fetchedItems = await getItems(user.uid);
+            setItems(fetchedItems);
+        }
+    };
+
     return(
-        <main className="bg-teal-900 h-full">
+        <main className="bg-teal-900 min-h-screen">
             <h1 className="text-3xl font-bold text-teal-100 px-6 pt-6">Shopping List</h1>
             { user ? (
                 <div className="flex">
                     <div className="flex-1 max-w-sm">
-                        {/* <NewItem onAddItem={handleAddItem} /> */}
-                        <NewItem />
+                        <NewItem onAddItem={refreshItems} />
                         <ItemList itemList={items} onItemSelect={handleItemSelect}/>
                     </div>
                     <div className="flex-1 max-w-sm pt-6 pl-10">

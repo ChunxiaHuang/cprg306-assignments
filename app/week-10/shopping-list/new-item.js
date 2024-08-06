@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { addItem, getItems } from "../_services/shopping-list-service";
+import { useUserAuth } from "../_utils/auth-context";
 
 export default function NewItem({onAddItem}){
+
 
     const buttonStyles = `bg-teal-500 border-2 border-teal-900 hover:bg-teal-600 
     active:border-teal-500 
@@ -26,6 +28,7 @@ export default function NewItem({onAddItem}){
     
         //onAddItem(newItem);
         await addItem(user.uid, newItem);
+        onAddItem();
 
         setItemName("");
         setQuantity(1);

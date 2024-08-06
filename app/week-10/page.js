@@ -38,7 +38,7 @@ return(
             <div>
                 <p className="text-teal-100 ml-5 py-5">Welcome, {user.displayName} ({user.email})</p>
                 <p className="text-teal-100 ml-5">Click the link below to view the shopping list</p>
-                <p className="text-teal-100 text-lg font-bold pl-5 hover:text-teal-600 "><Link href="./week-8/shopping-list">Shopping List</Link></p>
+                <p className="text-teal-100 text-lg font-bold pl-5 hover:text-teal-600 "><Link href="./week-10/shopping-list">Shopping List</Link></p>
                 <button 
                 onClick={handleSignOut}
                 className={buttonStyles}
